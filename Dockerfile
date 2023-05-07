@@ -5,10 +5,8 @@ FROM ubuntu:22.04 AS builder
 RUN apt-get update && apt-get install -y libopenblas-dev ninja-build build-essential python3
 RUN python -m pip install --upgrade pip pytest cmake scikit-build setuptools fastapi uvicorn sse-starlette
 
-COPY . .
-
-# Install llama_cpp_python
-RUN LLAMA_OPENBLAS=1 python3 setup.py install
+# Install
+RUN LLAMA_OPENBLAS=1 pip install llama-cpp-python[server]
 
 # final stage
 FROM builder
