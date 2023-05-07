@@ -15,5 +15,4 @@ FROM builder
 ENV HOST 0.0.0.0
 
 # Run the server
-ENTRYPOINT ["python3 -m", "llama_cpp.server"]
-#CMD python3 -m llama_cpp.server
+CMD python3 -m llama_cpp.server
